@@ -1,150 +1,272 @@
+# Translation-Azure 🚀
 
-# Tradutor Multifuncional
+[![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![API](https://img.shields.io/badge/API-REST-blue?style=for-the-badge)](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-Uma aplicação web que integra duas poderosas ferramentas de tradução em uma única plataforma, focada em proporcionar uma excelente experiência ao usuário com resultados precisos e contextualizados.
+## 📋 Descrição
 
----
+**Tradutor Multifuncional** integrado com **Azure Cognitive Services (Translator API)**. Uma aplicação web que oferece traducões de alta qualidade com suporte a múltiplos idiomas, proporcionando uma excelente experiência ao usuário com resultados precisos e contextualizados.
 
-## 📑 Índice
-
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [📋 Sobre o Projeto](#-sobre-o-projeto)
-  - [🎯 Tradutor de Artigos](#-tradutor-de-artigos)
-  - [📄 Tradutor de Documentos](#-tradutor-de-documentos)
-- [🚀 Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [📦 Requisitos](#-requisitos)
-- [⚙️ Instalação e Execução](#-instalação-e-execução)
-  - [💻 Execução Local com Poetry](#-execução-local-com-poetry)
-- [🎯 Conclusão e Aprendizados](#-conclusão-e-aprendizados)
-  - [🚀 Próximos Passos](#-próximos-passos)
-
----
-
-## 📋 Sobre o Projeto
-
-O **Tradutor Multifuncional** é uma aplicação web que reúne duas ferramentas de tradução integradas em uma única interface. Desenvolvida com foco na experiência do usuário e na qualidade dos resultados, a solução foi pensada para atender demandas diversas de tradução em ambientes profissionais.
-
-### 🎯 Tradutor de Artigos
-
-Utiliza a avançada API do Azure OpenAI (GPT-4o mini) para oferecer traduções precisas e contextualmente relevantes de artigos web. Entre suas principais funcionalidades, destacam-se:
-
-- **Extração automática:** Coleta o conteúdo diretamente de URLs.
-- **Preservação de Formatação:** Mantém a formatação markdown do texto original.
-- **Multi-idioma:** Suporte à tradução para diversos idiomas.
-- **Download:** Permite baixar o arquivo traduzido.
-- **Interface Responsiva:** Design intuitivo e adaptável a diferentes dispositivos.
-
-### 📄 Tradutor de Documentos
-
-Baseado na Azure Translator API, este módulo proporciona tradução profissional de documentos Word (.docx) com os seguintes destaques:
-
-- **Compatibilidade:** Suporte nativo para arquivos .docx.
-- **Pares de Idiomas:** Traduz entre múltiplos idiomas.
-- **Formatação Preservada:** Mantém a formatação original do documento.
-- **Download Rápido:** Possibilita o download do documento já traduzido.
-- **Interface Amigável:** Processo de upload simples e intuitivo.
+### 🎯 Recursos Principais
+- ✅ Integração com Azure Translator API
+- ✅ Suporte para 100+ idiomas
+- ✅ Interface web intuitiva e responsiva
+- ✅ Tradução em tempo real
+- ✅ Suporte a texto e URL
+- ✅ Detecção automática de idioma
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📦 Estrutura do Projeto
 
-**Core:**
-- Python
-- Azure OpenAI
-- Azure Translator
-
-**Principais Bibliotecas:**
-- `python-docx` – Manipulação de documentos Word
-- `beautifulsoup4` – Extração de conteúdo web
-- `python-dotenv` – Gerenciamento de variáveis de ambiente
-
----
-
-## 📦 Requisitos
-
-- Python (versão compatível com o projeto)
-- Poetry (para gerenciamento de dependências)
-- Conta Azure com acesso às APIs:
-  - Azure OpenAI
-  - Azure Translator
+```
+Translation-Azure/
+├── README.md           # Este arquivo
+├── app.py              # Aplicação Flask principal
+├── requirements.txt    # Dependências Python
+├── templates/          # Templates HTML
+│  ├── index.html
+│  └── resultado.html
+├── static/             # CSS e JavaScript
+│  ├── style.css
+│  └── script.js
+└── config.py           # Configuração de variáveis
+```
 
 ---
 
-## ⚙️ Instalação e Execução
+## 🚀 Quick Start
 
-### 💻 Execução Local com Poetry
+### 1. Pré-requisitos
+- Python 3.8+
+- Conta Azure com Translator API criada
+- Chave de acesso da Azure (API Key)
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/Jcnok/Bootcamp-Microsoft-Certification-Challenge--1-AI_102.git
+### 2. Clone o repositório
+```bash
+git clone https://github.com/LucianoHMG/Translation-Azure.git
+cd Translation-Azure
+```
 
-2. Navegue até a pasta do repositório:
+### 3. Instale as dependências
+```bash
+pip install -r requirements.txt
+```
 
-cd Bootcamp-Microsoft-Certification-Challenge--1-AI_102
+### 4. Configure as variáveis de ambiente
+```bash
+# Crie um arquivo .env na raiz do projeto
+echo "AZURE_API_KEY=sua_chave_aqui" > .env
+echo "AZURE_REGION=eastus" >> .env
+echo "FLASK_ENV=development" >> .env
+```
 
+### 5. Execute a aplicação
+```bash
+python app.py
+```
 
-3. Instale o Poetry (caso não esteja instalado):
-
-curl -sSL https://install.python-poetry.org | python3 -
-
-
-4. Configure o ambiente virtual e instale as dependências:
-
-poetry install
-
-
-5. Configure as variáveis de ambiente:
-
-cp .env.example .env
-
-Em seguida, edite o arquivo .env inserindo suas credenciais:
-
-AZURE_OPENAI_KEY=sua_chave_openai
-AZURE_ENDPOINT=seu_endpoint_openai
-TRANSLATOR_API_KEY=sua_chave_translator
-TRANSLATOR_ENDPOINT=seu_endpoint_translator
-TRANSLATOR_LOCATION=sua_localizacao_translator
-
-
-6. Execute a aplicação:
-
-poetry run streamlit run desafios_de_projeto/desafio_1/src/app.py
-
-
-7. Acesse a aplicação via URL:
-
-Abra o navegador e digite: http://localhost:8501
-
-
-
-
+Acesse em: `http://localhost:5000`
 
 ---
 
-🎯 Conclusão e Aprendizados
+## 📊 Sobre o Projeto
 
-Durante o desenvolvimento deste projeto, enfrentei o desafio de criar uma solução que não apenas traduzisse conteúdo, mas que também preservasse o contexto e a formatação dos textos originais. Essa jornada envolveu a exploração de diversas APIs da Azure e a integração de múltiplas tecnologias, resultando em uma aplicação coesa e robusta.
+Este projeto foi desenvolvido para demonstrar a integração com serviços cloud, especificamente **Azure Cognitive Services**. É um excelente exemplo de como utilizar APIs cloud para criar aplicações escalavéis e profissionais.
 
-🚀 Próximos Passos
-
-Este projeto não é apenas uma ferramenta de tradução, mas um exemplo de como tecnologias modernas podem ser combinadas para criar soluções escaláveis e empresariais. Futuramente, pretendo:
-
-Integrar novas funcionalidades e suporte a outros tipos de documentos.
-
-Otimizar ainda mais a interface do usuário.
-
-Expandir o suporte a mais idiomas e modelos de tradução.
-
-Investir em melhorias de performance e segurança.
-
-
+### O que faz:
+1. Recebe texto em qualquer idioma
+2. Detecta automaticamente o idioma de origem
+3. Permite seleção do idioma de destino
+4. Utiliza Azure Translator para traduzir
+5. Exibe resultado com formatação clara
 
 ---
 
-Este README está alinhado com as melhores práticas de documentação e foi estruturado para facilitar a compreensão e a utilização do projeto por desenvolvedores e usuários finais.
+## 📊 Guia de Uso
+
+### Interface Web
+1. Acesse `http://localhost:5000`
+2. Cole ou digite o texto a traduzir
+3. Selecione o idioma de destino
+4. Clique em "Traduzir"
+5. Veja o resultado imediatamente
+
+### Exemplo com cURL
+```bash
+curl -X POST http://localhost:5000/translate \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Olá, mundo!", "target_language": "en"}'
+
+# Resposta:
+# {"translated_text": "Hello, world!", "source_language": "pt"}
+```
 
 ---
 
-### Notas de Atualização:
-- A estrutura do documento foi mantida, mas os textos foram revisados para clareza e coesão.
-- Foram adicionadas seções de "Próximos Passos" e melhorias na descrição dos módulos.
+## 😐 Tecnologias Utilizadas
+
+| Tecnologia | Versão | Propósito |
+|-----------|--------|----------|
+| **Python** | 3.8+ | Backend |
+| **Flask** | 2.x | Framework Web |
+| **Azure Translator** | API | Serviço de Tradução |
+| **HTML5** | - | Frontend |
+| **CSS3** | - | Estilização |
+| **JavaScript** | - | Interação |
+| **Requests** | - | HTTP Client |
+
+---
+
+## 🎉 Casos de Uso
+
+- 👤 Traducão de documentos
+- 🌐 Localizacão de websites
+- 📄 Tradução de conteúdo
+- 🗣️ Assistente de suporte multilingué
+- 👦 Ferramentas educacionais
+
+---
+
+## 🔐 Segurança
+
+### ⚠️ Recomendações
+1. **Não exponha a API Key** no código
+2. Use **variáveis de ambiente** para credenciais
+3. Implemente **rate limiting** para uso da API
+4. Mantenha registros (logs) de traduções
+5. Valide inputs do usuário
+
+### Configuração de API Key
+```bash
+# NÃO FAÇA ISTO:
+export AZURE_API_KEY="abc123def456"  # Inseguro!
+
+# FAÇA ISTO:
+# Use arquivo .env com python-dotenv
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv('AZURE_API_KEY')
+```
+
+---
+
+## 📝 Exemplo de Configuração
+
+### requirements.txt
+```
+Flask==2.3.0
+requests==2.31.0
+python-dotenv==1.0.0
+```
+
+### Variáveis de Ambiente
+```bash
+AZURE_API_KEY=sua_chave_da_azure
+AZURE_REGION=eastus
+FLASK_ENV=development
+FLASK_DEBUG=True
+```
+
+---
+
+## 📄 API Endpoints
+
+### GET /
+Página principal com formulário
+
+### POST /translate
+Realiza a tradução
+
+**Request:**
+```json
+{
+  "text": "Olá, mundo!",
+  "target_language": "en"
+}
+```
+
+**Response:**
+```json
+{
+  "translated_text": "Hello, world!",
+  "source_language": "pt",
+  "target_language": "en",
+  "confidence": 0.98
+}
+```
+
+---
+
+## 😧 Troubleshooting
+
+### Erro: "Invalid API Key"
+```bash
+# Verifique se a chave está correta no .env
+echo $AZURE_API_KEY
+
+# Regenere a chave no portal Azure se necessário
+```
+
+### Erro: "Connection timeout"
+```bash
+# Verifique sua conexão com internet
+# Verifique se a região Azure está correta
+# Tente usar uma região diferente
+```
+
+### Erro: "Unsupported language"
+```bash
+# Consulte idiomas suportados:
+# https://learn.microsoft.com/en-us/azure/cognitive-services/translator/language-support
+```
+
+---
+
+## 🤝 Contribuindo
+
+1. Faça um Fork do projeto
+2. Crie uma branch (`git checkout -b feature/NewFeature`)
+3. Commit suas mudanças (`git commit -m 'Add NewFeature'`)
+4. Push (`git push origin feature/NewFeature`)
+5. Abra um Pull Request
+
+---
+
+## ✅ TODO / Roadmap
+
+- [ ] Adicionar cache de traduções
+- [ ] Implementar histórico de traduções
+- [ ] Adicionar suporte a upload de arquivos
+- [ ] Criar versão mobile (React Native)
+- [ ] Implementar testes automáticos
+- [ ] Dashboard de analytics
+- [ ] Suporte a múltiplos formatos (PDF, DOCX, etc)
+
+---
+
+## 📄 Licença
+
+MIT License - veja [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 👤 Autor
+
+**Luciano Girão**
+- GitHub: [@LucianoHMG](https://github.com/LucianoHMG)
+- LinkedIn: [lucianogirão](https://www.linkedin.com/in/lucianogirão)
+
+### 📚 Recursos Relacionados
+- [Azure Translator Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/)
+- [Azure Cognitive Services](https://azure.microsoft.com/en-us/products/cognitive-services/)
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [REST API Best Practices](https://restfulapi.net/)
+
+---
+
+## ⭐ Se este projeto foi útil, dê uma star! ⭐
+
+**Last Updated:** 2026-01-08
